@@ -5,6 +5,7 @@ import { app } from '../app'
 
 beforeAll(async () => {
   await redis.connect().catch(() => null) // já pode estar conectado
+  await redis.flushall()
   await app.ready()
 })
 

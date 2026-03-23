@@ -12,7 +12,10 @@ import { authRoutes } from './modules/auth/auth.routes'
 import { usersRoutes } from './modules/users/users.routes'
 import { logsRoutes } from './modules/logs/logs.routes'
 
-export const app = fastify({ logger: env.NODE_ENV !== 'test' })
+export const app = fastify({
+  logger: env.NODE_ENV !== 'test',
+  ajv: { customOptions: { strict: false } },
+})
 
 app.setErrorHandler(errorHandler)
 

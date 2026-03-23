@@ -5,12 +5,11 @@ export default defineConfig({
     environment: 'node',
     globals: true,
     setupFiles: ['./src/tests/setup.ts'],
+    fileParallelism: false,
     coverage: {
       reporter: ['text', 'lcov'],
       include: ['src/**/*.ts'],
       exclude: ['src/tests/**', 'src/server.ts'],
     },
-    pool: 'forks',
-    poolOptions: { forks: { singleFork: true } },
   },
 })
