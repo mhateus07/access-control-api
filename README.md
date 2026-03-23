@@ -157,15 +157,10 @@ Swagger em `http://localhost:3333/docs`
 Necessário ter PostgreSQL e Redis rodando (via Docker Compose).
 
 ```bash
-# Criar banco de teste separado
-docker exec access_control_postgres psql -U postgres -c "CREATE DATABASE access_control_test;"
-
-# Rodar migrations no banco de teste
-DATABASE_URL=postgresql://postgres:postgres@localhost:5432/access_control_test npx prisma migrate deploy
-
-# Executar testes
 npm test
 ```
+
+Os testes são de integração e rodam contra o banco real (`access_control_db`). O setup limpa automaticamente os dados de teste antes de cada arquivo.
 
 ---
 
